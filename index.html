@@ -4,536 +4,149 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agenda da Luísa</title>
-
 <style>
 *{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f7f5f8;
-    color:#29242c;
-}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7f5f8;color:#29242c}
 button,input,select,textarea{font:inherit}
 .app{display:flex;min-height:100vh}
-
-.sidebar{
-    width:250px;
-    background:#29232d;
-    color:white;
-    padding:25px 18px;
-    position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-}
-.logo{
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:6px;
-}
-.subtitle{
-    color:#cfc5d3;
-    font-size:13px;
-    margin-bottom:30px;
-}
-.nav button{
-    width:100%;
-    border:0;
-    background:transparent;
-    color:#eee;
-    text-align:left;
-    padding:13px 14px;
-    margin:3px 0;
-    border-radius:10px;
-    cursor:pointer;
-}
-.nav button:hover,.nav button.active{
-    background:#8f6a8f;
-}
-.user{
-    position:absolute;
-    bottom:25px;
-    left:18px;
-    right:18px;
-    padding:15px;
-    border-top:1px solid #4b414e;
-    color:#ddd;
-}
-
-.main{
-    margin-left:250px;
-    width:calc(100% - 250px);
-    padding:30px;
-}
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-.header h1{margin:0;font-size:28px}
-.header p{color:#756b78;margin:7px 0 0}
-
-.primary{
-    background:#8f6a8f;
-    color:white;
-    border:0;
-    padding:11px 18px;
-    border-radius:9px;
-    cursor:pointer;
-}
+.sidebar{width:250px;background:#29232d;color:white;padding:25px 18px;position:fixed;top:0;bottom:0;left:0}
+.logo{font-size:24px;font-weight:bold;margin-bottom:6px}
+.subtitle{color:#cfc5d3;font-size:13px;margin-bottom:30px}
+.nav button{width:100%;border:0;background:transparent;color:#eee;text-align:left;padding:13px 14px;margin:3px 0;border-radius:10px;cursor:pointer}
+.nav button:hover,.nav button.active{background:#8f6a8f}
+.user{position:absolute;bottom:25px;left:18px;right:18px;padding:15px;border-top:1px solid #4b414e;color:#ddd}
+.main{margin-left:250px;width:calc(100% - 250px);padding:30px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.header h1{margin:0;font-size:28px}.header p{color:#756b78;margin:7px 0 0}
+.primary{background:#8f6a8f;color:white;border:0;padding:11px 18px;border-radius:9px;cursor:pointer}
 .primary:hover{background:#765574}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-bottom:25px;
-}
-.card{
-    background:white;
-    border-radius:14px;
-    padding:20px;
-    box-shadow:0 2px 10px #0000000b;
-}
-.card small{color:#777}
-.card strong{
-    display:block;
-    font-size:28px;
-    margin-top:8px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:20px;
-}
-.box{
-    background:white;
-    border-radius:14px;
-    padding:22px;
-    margin-bottom:20px;
-    box-shadow:0 2px 10px #0000000b;
-}
-.box h2{
-    margin-top:0;
-    font-size:19px;
-}
-
-.item{
-    padding:14px 0;
-    border-bottom:1px solid #eee;
-}
-.item:last-child{border-bottom:0}
-.item strong{display:block}
-.muted{color:#777;font-size:13px}
-
-.table{
-    width:100%;
-    border-collapse:collapse;
-}
-.table th,.table td{
-    padding:12px;
-    text-align:left;
-    border-bottom:1px solid #eee;
-}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:25px}
+.card{background:white;border-radius:14px;padding:20px;box-shadow:0 2px 10px #0000000b}
+.card small{color:#777}.card strong{display:block;font-size:28px;margin-top:8px}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.box{background:white;border-radius:14px;padding:22px;margin-bottom:20px;box-shadow:0 2px 10px #0000000b}
+.box h2{margin-top:0;font-size:19px}
+.item{padding:14px 0;border-bottom:1px solid #eee}.item:last-child{border-bottom:0}
+.item strong{display:block}.muted{color:#777;font-size:13px}
+.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px;text-align:left;border-bottom:1px solid #eee}
 .table th{font-size:13px;color:#777}
-
-.form{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-.field{display:flex;flex-direction:column;gap:6px}
-.field.full{grid-column:1/-1}
+.form{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}
 .field label{font-size:13px;font-weight:bold}
-.field input,.field select,.field textarea{
-    border:1px solid #ddd;
-    border-radius:8px;
-    padding:11px;
-    background:white;
-}
+.field input,.field select,.field textarea{border:1px solid #ddd;border-radius:8px;padding:11px;background:white}
 textarea{min-height:90px;resize:vertical}
-
-.actions{
-    display:flex;
-    gap:8px;
-    margin-top:15px;
-}
-.secondary{
-    background:#eee9ef;
-    border:0;
-    padding:9px 14px;
-    border-radius:8px;
-    cursor:pointer;
-}
-.danger{
-    background:#f6dddd;
-    color:#9a3030;
-    border:0;
-    padding:9px 14px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.section{display:none}
-.section.active{display:block}
-
-.badge{
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:20px;
-    background:#eee7ef;
-    font-size:12px;
-}
-.empty{
-    text-align:center;
-    color:#888;
-    padding:25px;
-}
-
-@media(max-width:900px){
-    .sidebar{
-        width:190px;
-    }
-    .main{
-        margin-left:190px;
-        width:calc(100% - 190px);
-        padding:20px;
-    }
-    .cards{grid-template-columns:repeat(2,1fr)}
-    .grid{grid-template-columns:1fr}
-}
-
-@media(max-width:650px){
-    .sidebar{
-        position:relative;
-        width:100%;
-        height:auto;
-        padding:15px;
-    }
-    .user{position:static;margin-top:15px}
-    .app{display:block}
-    .main{
-        margin-left:0;
-        width:100%;
-        padding:15px;
-    }
-    .cards{grid-template-columns:1fr 1fr}
-    .form{grid-template-columns:1fr}
-    .field.full{grid-column:auto}
-}
+.actions{display:flex;gap:8px;margin-top:15px}
+.secondary{background:#eee9ef;border:0;padding:9px 14px;border-radius:8px;cursor:pointer}
+.danger{background:#f6dddd;color:#9a3030;border:0;padding:9px 14px;border-radius:8px;cursor:pointer}
+.section{display:none}.section.active{display:block}
+.badge{display:inline-block;padding:5px 9px;border-radius:20px;background:#eee7ef;font-size:12px}
+.empty{text-align:center;color:#888;padding:25px}
+.finance-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:20px}
+.finance-card{background:white;border-radius:14px;padding:18px;box-shadow:0 2px 10px #0000000b}
+.finance-card small{color:#777}.finance-card strong{display:block;font-size:22px;margin-top:8px}
+.search-box{margin-bottom:18px}
+.search-box input{width:100%;border:1px solid #ddd;border-radius:8px;padding:11px}
+.status-pago{background:#e4f3e8}.status-aberto{background:#fff0d9}.status-parcial{background:#e7edf9}
+@media(max-width:1100px){.cards,.finance-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.sidebar{width:190px}.main{margin-left:190px;width:calc(100% - 190px);padding:20px}.grid{grid-template-columns:1fr}}
+@media(max-width:650px){.sidebar{position:relative;width:100%;height:auto;padding:15px}.user{position:static;margin-top:15px}.app{display:block}.main{margin-left:0;width:100%;padding:15px}.cards,.finance-cards{grid-template-columns:1fr 1fr}.form{grid-template-columns:1fr}.field.full{grid-column:auto}.table{font-size:13px;display:block;overflow-x:auto;white-space:nowrap}}
 </style>
 </head>
-
 <body>
-
 <div class="app">
-
 <aside class="sidebar">
-    <div class="logo">Agenda da Luísa</div>
-    <div class="subtitle">Organização da clínica</div>
-
-    <nav class="nav">
-        <button class="active" onclick="showSection('dashboard',this)">🏠 Agenda do Dia</button>
-        <button onclick="showSection('pacientes',this)">👤 Pacientes</button>
-        <button onclick="showSection('retornos',this)">🔄 Retornos</button>
-        <button onclick="showSection('remarcacoes',this)">📅 Remarcações</button>
-        <button onclick="showSection('tratamentos',this)">🦷 Tratamentos</button>
-        <button onclick="showSection('pendencias',this)">⚠️ Pendências</button>
-        <button onclick="showSection('financeiro',this)">💰 Financeiro</button>
-        <button onclick="showSection('mensagens',this)">💬 Mensagens prontas</button>
-    </nav>
-
-    <div class="user">
-        <strong>Luísa</strong><br>
-        <span class="muted">Secretária</span>
-    </div>
+<div class="logo">Agenda da Luísa</div>
+<div class="subtitle">Organização da clínica</div>
+<nav class="nav">
+<button class="active" onclick="showSection('dashboard',this)">🏠 Agenda do Dia</button>
+<button onclick="showSection('pacientes',this)">👤 Pacientes</button>
+<button onclick="showSection('retornos',this)">🔄 Retornos</button>
+<button onclick="showSection('remarcacoes',this)">📅 Remarcações</button>
+<button onclick="showSection('tratamentos',this)">🦷 Tratamentos</button>
+<button onclick="showSection('pendencias',this)">⚠️ Pendências</button>
+<button onclick="showSection('financeiro',this)">💰 Financeiro</button>
+<button onclick="showSection('mensagens',this)">💬 Mensagens prontas</button>
+</nav>
+<div class="user"><strong>Luísa</strong><br><span class="muted">Secretária</span></div>
 </aside>
 
 <main class="main">
 
-<!-- DASHBOARD -->
 <section id="dashboard" class="section active">
-
-<div class="header">
-    <div>
-        <h1>Bom dia, Luísa! 💜</h1>
-        <p>Organize sua rotina e não deixe nenhum paciente sem retorno.</p>
-    </div>
-    <button class="primary" onclick="showSection('pacientes')">+ Novo paciente</button>
-</div>
-
+<div class="header"><div><h1>Bom dia, Luísa! 💜</h1><p>Organize sua rotina e não deixe nenhum paciente sem retorno.</p></div><button class="primary" onclick="showSection('pacientes')">+ Novo paciente</button></div>
 <div class="cards">
-    <div class="card">
-        <small>Pacientes</small>
-        <strong id="totalPacientes">0</strong>
-    </div>
-    <div class="card">
-        <small>Retornos para hoje</small>
-        <strong id="totalRetornos">0</strong>
-    </div>
-    <div class="card">
-        <small>Aguardando contato</small>
-        <strong id="totalContato">0</strong>
-    </div>
-    <div class="card">
-        <small>Pendências</small>
-        <strong id="totalPendencias">0</strong>
-    </div>
+<div class="card"><small>Pacientes</small><strong id="totalPacientes">0</strong></div>
+<div class="card"><small>Retornos para hoje</small><strong id="totalRetornos">0</strong></div>
+<div class="card"><small>Aguardando contato</small><strong id="totalContato">0</strong></div>
+<div class="card"><small>Pendências</small><strong id="totalPendencias">0</strong></div>
 </div>
-
 <div class="grid">
-
-<div class="box">
-<h2>📅 Agenda do Dia</h2>
-<div id="listaAgenda"></div>
-</div>
-
-<div class="box">
-<h2>⚠️ Atenção</h2>
-<div id="listaAtencao"></div>
-</div>
-
+<div class="box"><h2>📅 Agenda do Dia</h2><div id="listaAgenda"></div></div>
+<div class="box"><h2>⚠️ Atenção</h2><div id="listaAtencao"></div></div>
 </div>
 </section>
 
-
-<!-- PACIENTES -->
 <section id="pacientes" class="section">
-
-<div class="header">
-<div>
-<h1>Pacientes</h1>
-<p>Cadastre e acompanhe os pacientes da clínica.</p>
-</div>
-</div>
-
-<div class="box">
-<h2>Novo paciente</h2>
-
-<div class="form">
-<div class="field">
-<label>Nome do paciente</label>
-<input id="nomePaciente" placeholder="Ex.: José da Silva">
-</div>
-
-<div class="field">
-<label>Telefone</label>
-<input id="telefonePaciente" placeholder="(00) 00000-0000">
-</div>
-
-<div class="field">
-<label>Último atendimento</label>
-<input id="ultimoAtendimento" type="date">
-</div>
-
-<div class="field">
-<label>Próximo retorno</label>
-<input id="proximoRetorno" type="date">
-</div>
-
-<div class="field">
-<label>Status</label>
-<select id="statusPaciente">
-<option>Agendado</option>
-<option>Aguardando contato</option>
-<option>Sem retorno</option>
-<option>Manutenção</option>
-<option>Tratamento em andamento</option>
-</select>
-</div>
-
-<div class="field">
-<label>Resultado do contato</label>
-<select id="resultadoContato">
-<option>Não contatado</option>
-<option>Sem resposta</option>
-<option>Agendou</option>
-<option>Não deseja agendar agora</option>
-<option>Solicitou contato depois</option>
-</select>
-</div>
-
-<div class="field full">
-<label>Observações</label>
-<textarea id="obsPaciente" placeholder="Anotações importantes..."></textarea>
-</div>
-</div>
-
-<div class="actions">
-<button class="primary" onclick="salvarPaciente()">Salvar paciente</button>
-</div>
-</div>
-
-<div class="box">
-<h2>Lista de pacientes</h2>
-<div id="listaPacientes"></div>
-</div>
-
+<div class="header"><div><h1>Pacientes</h1><p>Cadastre e acompanhe os pacientes da clínica.</p></div></div>
+<div class="box"><h2>Novo paciente</h2><div class="form">
+<div class="field"><label>Nome do paciente</label><input id="nomePaciente" placeholder="Ex.: José da Silva"></div>
+<div class="field"><label>Telefone</label><input id="telefonePaciente" placeholder="(00) 00000-0000"></div>
+<div class="field"><label>Último atendimento</label><input id="ultimoAtendimento" type="date"></div>
+<div class="field"><label>Próximo retorno</label><input id="proximoRetorno" type="date"></div>
+<div class="field"><label>Status</label><select id="statusPaciente"><option>Agendado</option><option>Aguardando contato</option><option>Sem retorno</option><option>Manutenção</option><option>Tratamento em andamento</option></select></div>
+<div class="field"><label>Resultado do contato</label><select id="resultadoContato"><option>Não contatado</option><option>Sem resposta</option><option>Agendou</option><option>Não deseja agendar agora</option><option>Solicitou contato depois</option></select></div>
+<div class="field full"><label>Observações</label><textarea id="obsPaciente" placeholder="Anotações importantes..."></textarea></div>
+</div><div class="actions"><button class="primary" onclick="salvarPaciente()">Salvar paciente</button></div></div>
+<div class="box"><h2>Lista de pacientes</h2><div id="listaPacientes"></div></div>
 </section>
 
-
-<!-- RETORNOS -->
 <section id="retornos" class="section">
-
-<div class="header">
-<div>
-<h1>Retornos</h1>
-<p>Acompanhe quem precisa ser chamado.</p>
-</div>
-</div>
-
-<div class="box">
-<div id="listaRetornos"></div>
-</div>
-
+<div class="header"><div><h1>Retornos</h1><p>Acompanhe quem precisa ser chamado.</p></div></div>
+<div class="box"><div id="listaRetornos"></div></div>
 </section>
 
-
-<!-- REMARCAÇÕES -->
 <section id="remarcacoes" class="section">
-
-<div class="header">
-<div>
-<h1>Remarcações</h1>
-<p>Pacientes que precisam de novo agendamento.</p>
-</div>
-</div>
-
-<div class="box">
-<h2>Nova remarcação</h2>
-
-<div class="form">
-<div class="field">
-<label>Paciente</label>
-<input id="remPaciente" placeholder="Nome do paciente">
-</div>
-
-<div class="field">
-<label>Motivo</label>
-<select id="remMotivo">
-<option>Doutor desmarcou</option>
-<option>Paciente desmarcou</option>
-<option>Clínica desmarcou</option>
-<option>Outro</option>
-</select>
-</div>
-
-<div class="field">
-<label>Data para tentar contato</label>
-<input id="remData" type="date">
-</div>
-</div>
-
-<div class="actions">
-<button class="primary" onclick="salvarRemarcacao()">Salvar</button>
-</div>
-</div>
-
-<div class="box">
-<div id="listaRemarcacoes"></div>
-</div>
-
+<div class="header"><div><h1>Remarcações</h1><p>Pacientes que precisam de novo agendamento.</p></div></div>
+<div class="box"><h2>Nova remarcação</h2><div class="form">
+<div class="field"><label>Paciente</label><input id="remPaciente" placeholder="Nome do paciente"></div>
+<div class="field"><label>Motivo</label><select id="remMotivo"><option>Doutor desmarcou</option><option>Paciente desmarcou</option><option>Clínica desmarcou</option><option>Outro</option></select></div>
+<div class="field"><label>Data para tentar contato</label><input id="remData" type="date"></div>
+</div><div class="actions"><button class="primary" onclick="salvarRemarcacao()">Salvar</button></div></div>
+<div class="box"><div id="listaRemarcacoes"></div></div>
+</section><section id="tratamentos" class="section">
+<div class="header"><div><h1>Tratamentos</h1><p>Acompanhe tratamentos que ainda precisam de continuidade.</p></div></div>
+<div class="box"><h2>Novo acompanhamento</h2><div class="form">
+<div class="field"><label>Paciente</label><input id="tratPaciente" placeholder="Nome do paciente"></div>
+<div class="field"><label>Tratamento</label><input id="tratNome" placeholder="Ex.: Implante"></div>
+<div class="field"><label>Próxima etapa</label><input id="tratEtapa" placeholder="Ex.: Coroa sobre implante"></div>
+<div class="field"><label>Data prevista</label><input id="tratData" type="date"></div>
+</div><div class="actions"><button class="primary" onclick="salvarTratamento()">Salvar</button></div></div>
+<div class="box"><div id="listaTratamentos"></div></div>
 </section>
 
-
-<!-- TRATAMENTOS -->
-<section id="tratamentos" class="section">
-
-<div class="header">
-<div>
-<h1>Tratamentos</h1>
-<p>Acompanhe tratamentos que ainda precisam de continuidade.</p>
-</div>
-</div>
-
-<div class="box">
-<h2>Novo acompanhamento</h2>
-
-<div class="form">
-<div class="field">
-<label>Paciente</label>
-<input id="tratPaciente" placeholder="Nome do paciente">
-</div>
-
-<div class="field">
-<label>Tratamento</label>
-<input id="tratNome" placeholder="Ex.: Implante">
-</div>
-
-<div class="field">
-<label>Próxima etapa</label>
-<input id="tratEtapa" placeholder="Ex.: Coroa sobre implante">
-</div>
-
-<div class="field">
-<label>Data prevista</label>
-<input id="tratData" type="date">
-</div>
-</div>
-
-<div class="actions">
-<button class="primary" onclick="salvarTratamento()">Salvar</button>
-</div>
-</div>
-
-<div class="box">
-<div id="listaTratamentos"></div>
-</div>
-
-</section>
-
-
-<!-- PENDÊNCIAS -->
 <section id="pendencias" class="section">
-
-<div class="header">
-<div>
-<h1>Pendências</h1>
-<p>Tudo aquilo que precisa da sua atenção.</p>
-</div>
-</div>
-
-<div class="box">
-<h2>Nova pendência</h2>
-
-<div class="form">
-<div class="field">
-<label>Descrição</label>
-<input id="pendDescricao" placeholder="Ex.: Ligar para paciente">
-</div>
-
-<div class="field">
-<label>Data</label>
-<input id="pendData" type="date">
-</div>
-</div>
-
-<div class="actions">
-<button class="primary" onclick="salvarPendencia()">Salvar</button>
-</div>
-</div>
-
-<div class="box">
-<div id="listaPendencias"></div>
-</div>
-
+<div class="header"><div><h1>Pendências</h1><p>Tudo aquilo que precisa da sua atenção.</p></div></div>
+<div class="box"><h2>Nova pendência</h2><div class="form">
+<div class="field"><label>Descrição</label><input id="pendDescricao" placeholder="Ex.: Ligar para paciente"></div>
+<div class="field"><label>Data</label><input id="pendData" type="date"></div>
+</div><div class="actions"><button class="primary" onclick="salvarPendencia()">Salvar</button></div></div>
+<div class="box"><div id="listaPendencias"></div></div>
 </section>
 
-
-<!-- FINANCEIRO -->
 <section id="financeiro" class="section">
-
 <div class="header">
-<div>
-<h1>Financeiro</h1>
-<p>Controle simples dos valores dos pacientes.</p>
+<div><h1>Financeiro</h1><p>Controle completo dos pagamentos e valores dos pacientes.</p></div>
 </div>
+
+<div class="finance-cards">
+<div class="finance-card"><small>💰 Total dos tratamentos</small><strong id="finTotal">R$ 0,00</strong></div>
+<div class="finance-card"><small>✅ Total recebido</small><strong id="finRecebido">R$ 0,00</strong></div>
+<div class="finance-card"><small>🟡 Em aberto</small><strong id="finAberto">R$ 0,00</strong></div>
+<div class="finance-card"><small>🔵 Pagamentos parciais</small><strong id="finParcial">R$ 0,00</strong></div>
 </div>
 
 <div class="box">
-
+<h2>Novo lançamento financeiro</h2>
 <div class="form">
 
 <div class="field">
@@ -542,16 +155,43 @@ textarea{min-height:90px;resize:vertical}
 </div>
 
 <div class="field">
-<label>Valor</label>
-<input id="finValor" type="number" step="0.01" placeholder="0,00">
+<label>Tratamento / procedimento</label>
+<input id="finTratamento" placeholder="Ex.: Implante, limpeza, aparelho">
+</div>
+
+<div class="field">
+<label>Valor total</label>
+<input id="finValorTotal" type="number" min="0" step="0.01" placeholder="0,00">
+</div>
+
+<div class="field">
+<label>Valor pago</label>
+<input id="finValorPago" type="number" min="0" step="0.01" placeholder="0,00">
+</div>
+
+<div class="field">
+<label>Forma de pagamento</label>
+<select id="finForma">
+<option>Pix</option>
+<option>Dinheiro</option>
+<option>Cartão de crédito</option>
+<option>Cartão de débito</option>
+<option>Transferência</option>
+<option>Outro</option>
+</select>
+</div>
+
+<div class="field">
+<label>Data do pagamento</label>
+<input id="finData" type="date">
 </div>
 
 <div class="field">
 <label>Status</label>
 <select id="finStatus">
-<option>Em aberto</option>
 <option>Pago</option>
 <option>Parcial</option>
+<option>Em aberto</option>
 </select>
 </div>
 
@@ -563,21 +203,22 @@ textarea{min-height:90px;resize:vertical}
 </div>
 
 <div class="actions">
-<button class="primary" onclick="salvarFinanceiro()">Adicionar</button>
+<button class="primary" onclick="salvarFinanceiro()">Adicionar lançamento</button>
 </div>
-
 </div>
 
 <div class="box">
-<div id="listaFinanceiro"></div>
+<h2>Movimentações financeiras</h2>
+
+<div class="search-box">
+<input id="finBusca" placeholder="🔎 Buscar por nome do paciente..." oninput="renderFinanceiro()">
 </div>
 
+<div id="listaFinanceiro"></div>
+</div>
 </section>
 
-
-<!-- MENSAGENS -->
 <section id="mensagens" class="section">
-
 <div class="header">
 <div>
 <h1>Mensagens prontas</h1>
@@ -611,422 +252,659 @@ textarea{min-height:90px;resize:vertical}
 </main>
 </div>
 
-
 <script>
-
-let pacientes = JSON.parse(localStorage.getItem("agenda_pacientes") || "[]");
-let remarcacoes = JSON.parse(localStorage.getItem("agenda_remarcacoes") || "[]");
-let tratamentos = JSON.parse(localStorage.getItem("agenda_tratamentos") || "[]");
-let pendencias = JSON.parse(localStorage.getItem("agenda_pendencias") || "[]");
-let financeiro = JSON.parse(localStorage.getItem("agenda_financeiro") || "[]");
+let pacientes=JSON.parse(localStorage.getItem("agenda_pacientes")||"[]");
+let remarcacoes=JSON.parse(localStorage.getItem("agenda_remarcacoes")||"[]");
+let tratamentos=JSON.parse(localStorage.getItem("agenda_tratamentos")||"[]");
+let pendencias=JSON.parse(localStorage.getItem("agenda_pendencias")||"[]");
+let financeiro=JSON.parse(localStorage.getItem("agenda_financeiro")||"[]");
 
 function salvarDados(){
-    localStorage.setItem("agenda_pacientes",JSON.stringify(pacientes));
-    localStorage.setItem("agenda_remarcacoes",JSON.stringify(remarcacoes));
-    localStorage.setItem("agenda_tratamentos",JSON.stringify(tratamentos));
-    localStorage.setItem("agenda_pendencias",JSON.stringify(pendencias));
-    localStorage.setItem("agenda_financeiro",JSON.stringify(financeiro));
+ localStorage.setItem("agenda_pacientes",JSON.stringify(pacientes));
+ localStorage.setItem("agenda_remarcacoes",JSON.stringify(remarcacoes));
+ localStorage.setItem("agenda_tratamentos",JSON.stringify(tratamentos));
+ localStorage.setItem("agenda_pendencias",JSON.stringify(pendencias));
+ localStorage.setItem("agenda_financeiro",JSON.stringify(financeiro));
 }
 
 function showSection(id,btn){
-
-    document.querySelectorAll(".section").forEach(s=>{
-        s.classList.remove("active");
-    });
-
-    document.getElementById(id).classList.add("active");
-
-    document.querySelectorAll(".nav button").forEach(b=>{
-        b.classList.remove("active");
-    });
-
-    if(btn) btn.classList.add("active");
-
-    atualizarTudo();
+ document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));
+ if(btn)btn.classList.add("active");
+ atualizarTudo();
 }
 
 function salvarPaciente(){
+ const nome=document.getElementById("nomePaciente").value.trim();
 
-    const nome=document.getElementById("nomePaciente").value.trim();
+ if(!nome){
+  alert("Digite o nome do paciente.");
+  return;
+ }
 
-    if(!nome){
-        alert("Digite o nome do paciente.");
-        return;
-    }
+ pacientes.push({
+  id:Date.now(),
+  nome,
+  telefone:document.getElementById("telefonePaciente").value,
+  ultimo:document.getElementById("ultimoAtendimento").value,
+  retorno:document.getElementById("proximoRetorno").value,
+  status:document.getElementById("statusPaciente").value,
+  contato:document.getElementById("resultadoContato").value,
+  obs:document.getElementById("obsPaciente").value
+ });
 
-    pacientes.push({
-        id:Date.now(),
-        nome:nome,
-        telefone:document.getElementById("telefonePaciente").value,
-        ultimo:document.getElementById("ultimoAtendimento").value,
-        retorno:document.getElementById("proximoRetorno").value,
-        status:document.getElementById("statusPaciente").value,
-        contato:document.getElementById("resultadoContato").value,
-        obs:document.getElementById("obsPaciente").value
-    });
+ salvarDados();
 
-    salvarDados();
-    limparCampos("nomePaciente","telefonePaciente","ultimoAtendimento","proximoRetorno","obsPaciente");
-    atualizarTudo();
+ limparCampos(
+  "nomePaciente",
+  "telefonePaciente",
+  "ultimoAtendimento",
+  "proximoRetorno",
+  "obsPaciente"
+ );
 
-    alert("Paciente salvo com sucesso! 💜");
+ atualizarTudo();
+
+ alert("Paciente salvo com sucesso! 💜");
 }
 
 function salvarRemarcacao(){
+ const paciente=document.getElementById("remPaciente").value.trim();
 
-    const paciente=document.getElementById("remPaciente").value.trim();
+ if(!paciente){
+  alert("Digite o nome do paciente.");
+  return;
+ }
 
-    if(!paciente){
-        alert("Digite o nome do paciente.");
-        return;
-    }
+ remarcacoes.push({
+  id:Date.now(),
+  paciente,
+  motivo:document.getElementById("remMotivo").value,
+  data:document.getElementById("remData").value
+ });
 
-    remarcacoes.push({
-        id:Date.now(),
-        paciente:paciente,
-        motivo:document.getElementById("remMotivo").value,
-        data:document.getElementById("remData").value
-    });
-
-    salvarDados();
-    limparCampos("remPaciente","remData");
-    atualizarTudo();
+ salvarDados();
+ limparCampos("remPaciente","remData");
+ atualizarTudo();
 }
 
 function salvarTratamento(){
+ const paciente=document.getElementById("tratPaciente").value.trim();
 
-    const paciente=document.getElementById("tratPaciente").value.trim();
+ if(!paciente){
+  alert("Digite o nome do paciente.");
+  return;
+ }
 
-    if(!paciente){
-        alert("Digite o nome do paciente.");
-        return;
-    }
+ tratamentos.push({
+  id:Date.now(),
+  paciente,
+  tratamento:document.getElementById("tratNome").value,
+  etapa:document.getElementById("tratEtapa").value,
+  data:document.getElementById("tratData").value
+ });
 
-    tratamentos.push({
-        id:Date.now(),
-        paciente:paciente,
-        tratamento:document.getElementById("tratNome").value,
-        etapa:document.getElementById("tratEtapa").value,
-        data:document.getElementById("tratData").value
-    });
-
-    salvarDados();
-    limparCampos("tratPaciente","tratNome","tratEtapa","tratData");
-    atualizarTudo();
+ salvarDados();
+ limparCampos("tratPaciente","tratNome","tratEtapa","tratData");
+ atualizarTudo();
 }
 
 function salvarPendencia(){
+ const descricao=document.getElementById("pendDescricao").value.trim();
 
-    const descricao=document.getElementById("pendDescricao").value.trim();
+ if(!descricao){
+  alert("Digite a pendência.");
+  return;
+ }
 
-    if(!descricao){
-        alert("Digite a pendência.");
-        return;
-    }
+ pendencias.push({
+  id:Date.now(),
+  descricao,
+  data:document.getElementById("pendData").value,
+  concluida:false
+ });
 
-    pendencias.push({
-        id:Date.now(),
-        descricao:descricao,
-        data:document.getElementById("pendData").value,
-        concluida:false
-    });
+ salvarDados();
+ limparCampos("pendDescricao","pendData");
+ atualizarTudo();
+}function salvarFinanceiro(){
+ const paciente=document.getElementById("finPaciente").value.trim();
+ const tratamento=document.getElementById("finTratamento").value.trim();
+ const total=parseFloat(document.getElementById("finValorTotal").value)||0;
+ const pago=parseFloat(document.getElementById("finValorPago").value)||0;
 
-    salvarDados();
-    limparCampos("pendDescricao","pendData");
-    atualizarTudo();
-}
+ if(!paciente){
+  alert("Digite o nome do paciente.");
+  return;
+ }
 
-function salvarFinanceiro(){
+ if(total<=0){
+  alert("Digite o valor total do tratamento.");
+  return;
+ }
 
-    const paciente=document.getElementById("finPaciente").value.trim();
+ if(pago<0||pago>total){
+  alert("O valor pago não pode ser maior que o valor total.");
+  return;
+ }
 
-    if(!paciente){
-        alert("Digite o paciente.");
-        return;
-    }
+ let status=document.getElementById("finStatus").value;
 
-    financeiro.push({
-        id:Date.now(),
-        paciente:paciente,
-        valor:parseFloat(document.getElementById("finValor").value)||0,
-        status:document.getElementById("finStatus").value,
-        obs:document.getElementById("finObs").value
-    });
+ if(pago===total){
+  status="Pago";
+ }else if(pago>0){
+  status="Parcial";
+ }else{
+  status="Em aberto";
+ }
 
-    salvarDados();
-    limparCampos("finPaciente","finValor","finObs");
-    atualizarTudo();
+ financeiro.push({
+  id:Date.now(),
+  paciente,
+  tratamento,
+  valorTotal:total,
+  valorPago:pago,
+  valorRestante:total-pago,
+  forma:document.getElementById("finForma").value,
+  data:document.getElementById("finData").value,
+  status,
+  obs:document.getElementById("finObs").value
+ });
+
+ salvarDados();
+
+ limparCampos(
+  "finPaciente",
+  "finTratamento",
+  "finValorTotal",
+  "finValorPago",
+  "finData",
+  "finObs"
+ );
+
+ document.getElementById("finStatus").value="Pago";
+
+ atualizarTudo();
 }
 
 function limparCampos(...ids){
-    ids.forEach(id=>{
-        const el=document.getElementById(id);
-        if(el) el.value="";
-    });
+ ids.forEach(id=>{
+  const el=document.getElementById(id);
+  if(el)el.value="";
+ });
 }
 
 function excluir(tipo,id){
 
-    if(!confirm("Deseja realmente excluir este registro?")) return;
+ if(!confirm("Deseja realmente excluir este registro?")){
+  return;
+ }
 
-    if(tipo==="paciente") pacientes=pacientes.filter(x=>x.id!==id);
-    if(tipo==="remarcacao") remarcacoes=remarcacoes.filter(x=>x.id!==id);
-    if(tipo==="tratamento") tratamentos=tratamentos.filter(x=>x.id!==id);
-    if(tipo==="pendencia") pendencias=pendencias.filter(x=>x.id!==id);
-    if(tipo==="financeiro") financeiro=financeiro.filter(x=>x.id!==id);
+ if(tipo==="paciente"){
+  pacientes=pacientes.filter(x=>x.id!==id);
+ }
 
-    salvarDados();
-    atualizarTudo();
+ if(tipo==="remarcacao"){
+  remarcacoes=remarcacoes.filter(x=>x.id!==id);
+ }
+
+ if(tipo==="tratamento"){
+  tratamentos=tratamentos.filter(x=>x.id!==id);
+ }
+
+ if(tipo==="pendencia"){
+  pendencias=pendencias.filter(x=>x.id!==id);
+ }
+
+ if(tipo==="financeiro"){
+  financeiro=financeiro.filter(x=>x.id!==id);
+ }
+
+ salvarDados();
+ atualizarTudo();
 }
 
 function concluirPendencia(id){
+ const p=pendencias.find(x=>x.id===id);
 
-    const p=pendencias.find(x=>x.id===id);
-    if(p) p.concluida=!p.concluida;
+ if(p){
+  p.concluida=!p.concluida;
+ }
 
-    salvarDados();
-    atualizarTudo();
+ salvarDados();
+ atualizarTudo();
 }
 
 function formatarData(data){
+ if(!data){
+  return "Sem data";
+ }
 
-    if(!data) return "Sem data";
+ const p=data.split("-");
 
-    const partes=data.split("-");
-    if(partes.length!==3) return data;
+ if(p.length===3){
+  return p[2]+"/"+p[1]+"/"+p[0];
+ }
 
-    return partes[2]+"/"+partes[1]+"/"+partes[0];
+ return data;
+}
+
+function moeda(v){
+ return Number(v||0).toLocaleString("pt-BR",{
+  style:"currency",
+  currency:"BRL"
+ });
 }
 
 function renderPacientes(){
 
-    const el=document.getElementById("listaPacientes");
+ const el=document.getElementById("listaPacientes");
 
-    if(!pacientes.length){
-        el.innerHTML='<div class="empty">Nenhum paciente cadastrado ainda.</div>';
-        return;
-    }
+ if(!pacientes.length){
+  el.innerHTML='<div class="empty">Nenhum paciente cadastrado ainda.</div>';
+  return;
+ }
 
-    el.innerHTML=`
-    <table class="table">
-    <tr>
-    <th>Paciente</th>
-    <th>Telefone</th>
-    <th>Retorno</th>
-    <th>Status</th>
-    <th></th>
-    </tr>
+ el.innerHTML=`
+ <table class="table">
+ <tr>
+ <th>Paciente</th>
+ <th>Telefone</th>
+ <th>Retorno</th>
+ <th>Status</th>
+ <th></th>
+ </tr>
 
-    ${pacientes.map(p=>`
-    <tr>
-    <td><strong>${p.nome}</strong></td>
-    <td>${p.telefone||"-"}</td>
-    <td>${formatarData(p.retorno)}</td>
-    <td><span class="badge">${p.status}</span></td>
-    <td><button class="danger" onclick="excluir('paciente',${p.id})">Excluir</button></td>
-    </tr>
-    `).join("")}
+ ${pacientes.map(p=>`
+ <tr>
+ <td><strong>${p.nome}</strong></td>
+ <td>${p.telefone||"-"}</td>
+ <td>${formatarData(p.retorno)}</td>
+ <td><span class="badge">${p.status}</span></td>
+ <td>
+ <button class="danger" onclick="excluir('paciente',${p.id})">
+ Excluir
+ </button>
+ </td>
+ </tr>
+ `).join("")}
 
-    </table>`;
+ </table>
+ `;
 }
 
 function renderRetornos(){
 
-    const el=document.getElementById("listaRetornos");
+ const el=document.getElementById("listaRetornos");
 
-    const hoje=new Date().toISOString().split("T")[0];
+ const hoje=new Date().toISOString().split("T")[0];
 
-    const lista=pacientes.filter(p=>p.retorno && p.retorno<=hoje);
+ const lista=pacientes.filter(
+  p=>p.retorno&&p.retorno<=hoje
+ );
 
-    if(!lista.length){
-        el.innerHTML='<div class="empty">Nenhum retorno para hoje. 💜</div>';
-        return;
-    }
+ if(!lista.length){
+  el.innerHTML='<div class="empty">Nenhum retorno para hoje. 💜</div>';
+  return;
+ }
 
-    el.innerHTML=lista.map(p=>`
-    <div class="item">
-    <strong>${p.nome}</strong>
-    <div class="muted">Retorno: ${formatarData(p.retorno)}</div>
-    <div class="muted">Contato: ${p.contato}</div>
-    </div>
-    `).join("");
+ el.innerHTML=lista.map(p=>`
+ <div class="item">
+ <strong>${p.nome}</strong>
+ <div class="muted">
+ Retorno: ${formatarData(p.retorno)}
+ </div>
+ <div class="muted">
+ Contato: ${p.contato}
+ </div>
+ </div>
+ `).join("");
 }
 
 function renderRemarcacoes(){
 
-    const el=document.getElementById("listaRemarcacoes");
+ const el=document.getElementById("listaRemarcacoes");
 
-    if(!remarcacoes.length){
-        el.innerHTML='<div class="empty">Nenhuma remarcação pendente.</div>';
-        return;
-    }
+ if(!remarcacoes.length){
+  el.innerHTML='<div class="empty">Nenhuma remarcação pendente.</div>';
+  return;
+ }
 
-    el.innerHTML=remarcacoes.map(r=>`
-    <div class="item">
-    <strong>${r.paciente}</strong>
-    <div class="muted">${r.motivo}</div>
-    <div class="muted">Tentar contato: ${formatarData(r.data)}</div>
-    <button class="danger" onclick="excluir('remarcacao',${r.id})">Excluir</button>
-    </div>
-    `).join("");
+ el.innerHTML=remarcacoes.map(r=>`
+ <div class="item">
+ <strong>${r.paciente}</strong>
+ <div class="muted">${r.motivo}</div>
+ <div class="muted">
+ Tentar contato: ${formatarData(r.data)}
+ </div>
+
+ <button class="danger"
+ onclick="excluir('remarcacao',${r.id})">
+ Excluir
+ </button>
+ </div>
+ `).join("");
 }
 
 function renderTratamentos(){
 
-    const el=document.getElementById("listaTratamentos");
+ const el=document.getElementById("listaTratamentos");
 
-    if(!tratamentos.length){
-        el.innerHTML='<div class="empty">Nenhum tratamento pendente.</div>';
-        return;
-    }
+ if(!tratamentos.length){
+  el.innerHTML='<div class="empty">Nenhum tratamento pendente.</div>';
+  return;
+ }
 
-    el.innerHTML=tratamentos.map(t=>`
-    <div class="item">
-    <strong>${t.paciente}</strong>
-    <div class="muted">Tratamento: ${t.tratamento}</div>
-    <div class="muted">Próxima etapa: ${t.etapa}</div>
-    <div class="muted">Data: ${formatarData(t.data)}</div>
-    <button class="danger" onclick="excluir('tratamento',${t.id})">Excluir</button>
-    </div>
-    `).join("");
+ el.innerHTML=tratamentos.map(t=>`
+ <div class="item">
+ <strong>${t.paciente}</strong>
+
+ <div class="muted">
+ Tratamento: ${t.tratamento}
+ </div>
+
+ <div class="muted">
+ Próxima etapa: ${t.etapa}
+ </div>
+
+ <div class="muted">
+ Data: ${formatarData(t.data)}
+ </div>
+
+ <button class="danger"
+ onclick="excluir('tratamento',${t.id})">
+ Excluir
+ </button>
+
+ </div>
+ `).join("");
 }
 
 function renderPendencias(){
 
-    const el=document.getElementById("listaPendencias");
+ const el=document.getElementById("listaPendencias");
 
-    if(!pendencias.length){
-        el.innerHTML='<div class="empty">Nenhuma pendência. 🎉</div>';
-        return;
-    }
+ if(!pendencias.length){
+  el.innerHTML='<div class="empty">Nenhuma pendência. 🎉</div>';
+  return;
+ }
 
-    el.innerHTML=pendencias.map(p=>`
-    <div class="item">
-    <strong style="${p.concluida?'text-decoration:line-through':''}">
-    ${p.descricao}
-    </strong>
-    <div class="muted">Data: ${formatarData(p.data)}</div>
-    <div class="actions">
-    <button class="secondary" onclick="concluirPendencia(${p.id})">
-    ${p.concluida?"Reabrir":"Concluir"}
-    </button>
-    <button class="danger" onclick="excluir('pendencia',${p.id})">Excluir</button>
-    </div>
-    </div>
-    `).join("");
+ el.innerHTML=pendencias.map(p=>`
+ <div class="item">
+
+ <strong style="${p.concluida?'text-decoration:line-through':''}">
+ ${p.descricao}
+ </strong>
+
+ <div class="muted">
+ Data: ${formatarData(p.data)}
+ </div>
+
+ <div class="actions">
+
+ <button class="secondary"
+ onclick="concluirPendencia(${p.id})">
+ ${p.concluida?"Reabrir":"Concluir"}
+ </button>
+
+ <button class="danger"
+ onclick="excluir('pendencia',${p.id})">
+ Excluir
+ </button>
+
+ </div>
+
+ </div>
+ `).join("");
 }
 
 function renderFinanceiro(){
 
-    const el=document.getElementById("listaFinanceiro");
+ const el=document.getElementById("listaFinanceiro");
 
-    if(!financeiro.length){
-        el.innerHTML='<div class="empty">Nenhum lançamento financeiro.</div>';
-        return;
-    }
+ const busca=(
+  document.getElementById("finBusca")?.value||""
+ ).toLowerCase().trim();
 
-    const total=financeiro.reduce((s,f)=>s+f.valor,0);
+ const lista=financeiro.filter(f=>
+  (f.paciente||"").toLowerCase().includes(busca)
+ );
 
-    el.innerHTML=`
-    <div class="card" style="margin-bottom:15px">
-    <small>Total lançado</small>
-    <strong>R$ ${total.toFixed(2).replace(".",",")}</strong>
-    </div>
+ let total=0;
+ let recebido=0;
+ let aberto=0;
+ let parcial=0;
 
-    <table class="table">
-    <tr>
-    <th>Paciente</th>
-    <th>Valor</th>
-    <th>Status</th>
-    <th></th>
-    </tr>
+ financeiro.forEach(f=>{
 
-    ${financeiro.map(f=>`
-    <tr>
-    <td>${f.paciente}</td>
-    <td>R$ ${f.valor.toFixed(2).replace(".",",")}</td>
-    <td><span class="badge">${f.status}</span></td>
-    <td><button class="danger" onclick="excluir('financeiro',${f.id})">Excluir</button></td>
-    </tr>
-    `).join("")}
-    </table>`;
+  const t=Number(
+   f.valorTotal??f.valor??0
+  );
+
+  const p=Number(
+   f.valorPago??
+   (f.status==="Pago"?f.valor:0)
+  );
+
+  total+=t;
+  recebido+=p;
+
+  if(f.status==="Em aberto"){
+   aberto+=Math.max(t-p,0);
+  }
+
+  if(f.status==="Parcial"){
+   parcial+=Math.max(t-p,0);
+  }
+
+ });
+
+ document.getElementById("finTotal").textContent=moeda(total);
+ document.getElementById("finRecebido").textContent=moeda(recebido);
+ document.getElementById("finAberto").textContent=moeda(aberto);
+ document.getElementById("finParcial").textContent=moeda(parcial);
+
+ if(!lista.length){
+  el.innerHTML=
+  '<div class="empty">Nenhum lançamento financeiro encontrado.</div>';
+  return;
+ }
+
+ el.innerHTML=`
+ <table class="table">
+
+ <tr>
+ <th>Paciente</th>
+ <th>Tratamento</th>
+ <th>Total</th>
+ <th>Pago</th>
+ <th>Falta</th>
+ <th>Forma</th>
+ <th>Data</th>
+ <th>Status</th>
+ <th></th>
+ </tr>
+
+ ${lista.map(f=>{
+
+  const t=Number(
+   f.valorTotal??f.valor??0
+  );
+
+  const p=Number(
+   f.valorPago??
+   (f.status==="Pago"?f.valor:0)
+  );
+
+  const r=Math.max(t-p,0);
+
+  const cls=
+   f.status==="Pago"
+   ?"status-pago"
+   :f.status==="Parcial"
+   ?"status-parcial"
+   :"status-aberto";
+
+  return `
+  <tr>
+
+  <td>
+   <strong>${f.paciente}</strong>
+
+   ${f.obs?
+   `<div class="muted">${f.obs}</div>`
+   :""
+   }
+
+  </td>
+
+  <td>${f.tratamento||"-"}</td>
+
+  <td>${moeda(t)}</td>
+
+  <td>${moeda(p)}</td>
+
+  <td>${moeda(r)}</td>
+
+  <td>${f.forma||"-"}</td>
+
+  <td>${formatarData(f.data)}</td>
+
+  <td>
+   <span class="badge ${cls}">
+   ${f.status||"Em aberto"}
+   </span>
+  </td>
+
+  <td>
+   <button class="danger"
+   onclick="excluir('financeiro',${f.id})">
+   Excluir
+   </button>
+  </td>
+
+  </tr>
+  `;
+
+ }).join("")}
+
+ </table>
+ `;
 }
 
 function atualizarDashboard(){
 
-    document.getElementById("totalPacientes").textContent=pacientes.length;
+ document.getElementById("totalPacientes").textContent=
+ pacientes.length;
 
-    const hoje=new Date().toISOString().split("T")[0];
+ const hoje=
+ new Date().toISOString().split("T")[0];
 
-    document.getElementById("totalRetornos").textContent=
-        pacientes.filter(p=>p.retorno===hoje).length;
+ document.getElementById("totalRetornos").textContent=
+ pacientes.filter(p=>p.retorno===hoje).length;
 
-    document.getElementById("totalContato").textContent=
-        pacientes.filter(p=>p.status==="Aguardando contato").length;
+ document.getElementById("totalContato").textContent=
+ pacientes.filter(
+  p=>p.status==="Aguardando contato"
+ ).length;
 
-    document.getElementById("totalPendencias").textContent=
-        pendencias.filter(p=>!p.concluida).length;
+ document.getElementById("totalPendencias").textContent=
+ pendencias.filter(p=>!p.concluida).length;
 
-    const agenda=document.getElementById("listaAgenda");
+ const agenda=
+ document.getElementById("listaAgenda");
 
-    const retornos=pacientes.filter(p=>p.retorno===hoje);
+ const retornos=
+ pacientes.filter(p=>p.retorno===hoje);
 
-    if(!retornos.length){
-        agenda.innerHTML='<div class="empty">Nenhum retorno programado para hoje.</div>';
-    }else{
-        agenda.innerHTML=retornos.map(p=>`
-        <div class="item">
-        <strong>${p.nome}</strong>
-        <div class="muted">Retorno de paciente</div>
-        </div>
-        `).join("");
-    }
+ if(retornos.length){
 
-    const atencao=document.getElementById("listaAtencao");
+  agenda.innerHTML=
+  retornos.map(p=>`
+   <div class="item">
+   <strong>${p.nome}</strong>
+   <div class="muted">
+   Retorno de paciente
+   </div>
+   </div>
+  `).join("");
 
-    const lista=[
-        ...pacientes.filter(p=>p.status==="Aguardando contato").map(p=>`Entrar em contato com ${p.nome}`),
-        ...remarcacoes.map(r=>`Remarcar ${r.paciente}`),
-        ...pendencias.filter(p=>!p.concluida).map(p=>p.descricao)
-    ];
+ }else{
 
-    if(!lista.length){
-        atencao.innerHTML='<div class="empty">Tudo organizado por aqui! 💜</div>';
-    }else{
-        atencao.innerHTML=lista.slice(0,8).map(x=>`
-        <div class="item">${x}</div>
-        `).join("");
-    }
+  agenda.innerHTML=
+  '<div class="empty">Nenhum retorno programado para hoje.</div>';
+
+ }
+
+ const atencao=
+ document.getElementById("listaAtencao");
+
+ const lista=[
+
+  ...pacientes
+  .filter(p=>p.status==="Aguardando contato")
+  .map(p=>`Entrar em contato com ${p.nome}`),
+
+  ...remarcacoes
+  .map(r=>`Remarcar ${r.paciente}`),
+
+  ...pendencias
+  .filter(p=>!p.concluida)
+  .map(p=>p.descricao)
+
+ ];
+
+ if(lista.length){
+
+  atencao.innerHTML=
+  lista.slice(0,8)
+  .map(x=>`<div class="item">${x}</div>`)
+  .join("");
+
+ }else{
+
+  atencao.innerHTML=
+  '<div class="empty">Tudo organizado por aqui! 💜</div>';
+
+ }
+
 }
 
 function atualizarTudo(){
 
-    renderPacientes();
-    renderRetornos();
-    renderRemarcacoes();
-    renderTratamentos();
-    renderPendencias();
-    renderFinanceiro();
-    atualizarDashboard();
+ renderPacientes();
+ renderRetornos();
+ renderRemarcacoes();
+ renderTratamentos();
+ renderPendencias();
+ renderFinanceiro();
+ atualizarDashboard();
+
 }
 
 function copiar(botao){
 
-    const texto=botao.parentElement.querySelector("p").innerText;
+ const texto=
+ botao.parentElement
+ .querySelector("p")
+ .innerText;
 
-    navigator.clipboard.writeText(texto);
+ navigator.clipboard.writeText(texto);
 
-    const original=botao.innerText;
-    botao.innerText="Copiado! ✓";
+ const original=botao.innerText;
 
-    setTimeout(()=>{
-        botao.innerText=original;
-    },1500);
+ botao.innerText="Copiado! ✓";
+
+ setTimeout(
+  ()=>botao.innerText=original,
+  1500
+ );
+
 }
 
 atualizarTudo();
 
 </script>
-
 </body>
 </html>
