@@ -1,113 +1,1032 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clínica Chicaroli — Retornos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda da Luísa</title>
+
 <style>
-:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:light dark;--bg:light-dark(#f5f8fc,#101722);--surface:light-dark(#fff,#18212d);--surface2:light-dark(#f7f9fc,#202b38);--text:light-dark(#1d2b3a,#eef4fb);--muted:light-dark(#6c7a89,#9eacbc);--border:light-dark(#e4eaf1,#2b3948);--navy:#17365d;--blue:#2676d9;--green:#1ca66b;--orange:#e5a321;--red:#df5964;--shadow:0 10px 30px rgba(20,45,75,.08)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}button,input,select{font:inherit}.app{min-height:100vh;background:var(--bg);display:flex}.sidebar{width:230px;background:#102f52;color:#fff;padding:24px 16px;display:flex;flex-direction:column;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;padding:6px}.brandmark{width:38px;height:38px;border-radius:12px;background:#fff;color:#102f52;display:grid;place-items:center;font-size:20px}.tag{font-size:10px;opacity:.65;margin-left:48px;margin-top:-16px}.nav{display:grid;gap:7px;margin-top:10px}.nav button{border:0;background:transparent;color:#dce8f5;text-align:left;padding:12px;border-radius:10px;cursor:pointer}.nav button.active,.nav button:hover{background:#2478dc;color:#fff}.profile{margin-top:auto;border-top:1px solid rgba(255,255,255,.16);padding-top:16px;font-size:13px}.main{flex:1;padding:28px;min-width:0}.top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:22px}.eyebrow{font-size:13px;color:var(--muted)}h1{margin:4px 0;font-size:25px}.date{font-size:13px;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.card{background:var(--surface);border:1px solid var(--border);border-radius:15px;padding:17px;box-shadow:var(--shadow)}.card .label{font-size:12px;color:var(--muted)}.num{font-size:28px;font-weight:800;margin-top:8px}.red{color:var(--red)}.orange{color:var(--orange)}.blue{color:var(--blue)}.green{color:var(--green)}.purple{color:#8265c7}.grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;margin-top:16px}.panel{background:var(--surface);border:1px solid var(--border);border-radius:15px;box-shadow:var(--shadow);overflow:hidden}.panelhead{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}.panelhead h2{font-size:15px;margin:0}.link{border:0;background:transparent;color:var(--blue);cursor:pointer;font-weight:700;font-size:12px}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:12px}.table th,.table td{padding:12px 14px;border-bottom:1px solid var(--border);text-align:left;white-space:nowrap}.table th{font-size:11px;color:var(--muted);background:var(--surface2)}.pill{display:inline-flex;padding:5px 8px;border-radius:999px;font-weight:700;font-size:10px}.pill.red{background:#fde8ea}.pill.orange{background:#fff1cf}.pill.green{background:#dff5ea}.pill.blue{background:#e3efff}.actions{display:flex;gap:7px}.iconbtn{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);background:var(--surface);cursor:pointer}.bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px}.alert{border-left:5px solid var(--red)}.quick button{display:block;width:100%;border:0;border-radius:10px;padding:11px;margin:8px 0;cursor:pointer;font-weight:700}.whats{background:#1db66d;color:#fff}.primary{background:#2676d9;color:#fff}.new{background:#8265c7;color:#fff}.searchbar{display:flex;gap:8px;margin-bottom:16px}.searchbar input{flex:1;padding:11px 13px;border:1px solid var(--border);background:var(--surface);border-radius:10px;color:var(--text)}.modal{position:fixed;inset:0;background:rgba(0,0,0,.42);display:none;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modalbox{width:min(600px,100%);background:var(--surface);border-radius:18px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.25)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:var(--muted)}.field input,.field select{padding:10px;border:1px solid var(--border);border-radius:9px;background:var(--surface2);color:var(--text)}.modalactions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}.modalactions button{border:0;border-radius:9px;padding:10px 16px;cursor:pointer}.close{background:var(--surface2);color:var(--text)}.save{background:#2676d9;color:white}.toast{position:fixed;right:22px;bottom:22px;background:#17365d;color:#fff;padding:12px 16px;border-radius:10px;display:none}.toast.show{display:block}@media(max-width:1050px){.cards{grid-template-columns:repeat(3,1fr)}.bottom{grid-template-columns:1fr 1fr}.sidebar{width:190px}}@media(max-width:760px){.sidebar{display:none}.main{padding:18px}.cards{grid-template-columns:1fr 1fr}.grid,.bottom{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f7f5f8;
+    color:#29242c;
+}
+button,input,select,textarea{font:inherit}
+.app{display:flex;min-height:100vh}
+
+.sidebar{
+    width:250px;
+    background:#29232d;
+    color:white;
+    padding:25px 18px;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+}
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+.subtitle{
+    color:#cfc5d3;
+    font-size:13px;
+    margin-bottom:30px;
+}
+.nav button{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:#eee;
+    text-align:left;
+    padding:13px 14px;
+    margin:3px 0;
+    border-radius:10px;
+    cursor:pointer;
+}
+.nav button:hover,.nav button.active{
+    background:#8f6a8f;
+}
+.user{
+    position:absolute;
+    bottom:25px;
+    left:18px;
+    right:18px;
+    padding:15px;
+    border-top:1px solid #4b414e;
+    color:#ddd;
+}
+
+.main{
+    margin-left:250px;
+    width:calc(100% - 250px);
+    padding:30px;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+.header h1{margin:0;font-size:28px}
+.header p{color:#756b78;margin:7px 0 0}
+
+.primary{
+    background:#8f6a8f;
+    color:white;
+    border:0;
+    padding:11px 18px;
+    border-radius:9px;
+    cursor:pointer;
+}
+.primary:hover{background:#765574}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+.card{
+    background:white;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 2px 10px #0000000b;
+}
+.card small{color:#777}
+.card strong{
+    display:block;
+    font-size:28px;
+    margin-top:8px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+.box{
+    background:white;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px #0000000b;
+}
+.box h2{
+    margin-top:0;
+    font-size:19px;
+}
+
+.item{
+    padding:14px 0;
+    border-bottom:1px solid #eee;
+}
+.item:last-child{border-bottom:0}
+.item strong{display:block}
+.muted{color:#777;font-size:13px}
+
+.table{
+    width:100%;
+    border-collapse:collapse;
+}
+.table th,.table td{
+    padding:12px;
+    text-align:left;
+    border-bottom:1px solid #eee;
+}
+.table th{font-size:13px;color:#777}
+
+.form{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:13px;font-weight:bold}
+.field input,.field select,.field textarea{
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:11px;
+    background:white;
+}
+textarea{min-height:90px;resize:vertical}
+
+.actions{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+.secondary{
+    background:#eee9ef;
+    border:0;
+    padding:9px 14px;
+    border-radius:8px;
+    cursor:pointer;
+}
+.danger{
+    background:#f6dddd;
+    color:#9a3030;
+    border:0;
+    padding:9px 14px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.section{display:none}
+.section.active{display:block}
+
+.badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    background:#eee7ef;
+    font-size:12px;
+}
+.empty{
+    text-align:center;
+    color:#888;
+    padding:25px;
+}
+
+@media(max-width:900px){
+    .sidebar{
+        width:190px;
+    }
+    .main{
+        margin-left:190px;
+        width:calc(100% - 190px);
+        padding:20px;
+    }
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .grid{grid-template-columns:1fr}
+}
+
+@media(max-width:650px){
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+        padding:15px;
+    }
+    .user{position:static;margin-top:15px}
+    .app{display:block}
+    .main{
+        margin-left:0;
+        width:100%;
+        padding:15px;
+    }
+    .cards{grid-template-columns:1fr 1fr}
+    .form{grid-template-columns:1fr}
+    .field.full{grid-column:auto}
+}
 </style>
 </head>
+
 <body>
+
 <div class="app">
+
 <aside class="sidebar">
-  <div><div class="brand"><div class="brandmark">✦</div><div>Clínica<br>Chicaroli</div></div><div class="tag">Sorrisos que fazem bem</div></div>
-  <nav class="nav">
-    <button class="active" onclick="showSection('dashboard',this)">▣ &nbsp; Dashboard</button><button onclick="showSection('patients',this)">♙ &nbsp; Pacientes</button><button onclick="openModal()">＋ &nbsp; Novo atendimento</button><button onclick="showSection('returns',this)">↻ &nbsp; Retornos</button><button onclick="showSection('messages',this)">✉ &nbsp; Mensagens</button><button onclick="showSection('history',this)">◷ &nbsp; Histórico</button><button onclick="toast('Agenda: use Novo atendimento para registrar o retorno')">▦ &nbsp; Agenda</button><button onclick="toast('Relatórios serão adicionados na próxima etapa')">▥ &nbsp; Relatórios</button>
-  </nav>
-  <div class="profile"><b>Lu</b><br><span style="opacity:.7">Administradora</span></div>
+    <div class="logo">Agenda da Luísa</div>
+    <div class="subtitle">Organização da clínica</div>
+
+    <nav class="nav">
+        <button class="active" onclick="showSection('dashboard',this)">🏠 Agenda do Dia</button>
+        <button onclick="showSection('pacientes',this)">👤 Pacientes</button>
+        <button onclick="showSection('retornos',this)">🔄 Retornos</button>
+        <button onclick="showSection('remarcacoes',this)">📅 Remarcações</button>
+        <button onclick="showSection('tratamentos',this)">🦷 Tratamentos</button>
+        <button onclick="showSection('pendencias',this)">⚠️ Pendências</button>
+        <button onclick="showSection('financeiro',this)">💰 Financeiro</button>
+        <button onclick="showSection('mensagens',this)">💬 Mensagens prontas</button>
+    </nav>
+
+    <div class="user">
+        <strong>Luísa</strong><br>
+        <span class="muted">Secretária</span>
+    </div>
 </aside>
-<main class="main" id="dashboard">
-  <div class="top"><div><div class="eyebrow">Bom dia, Lu! 👋</div><h1>Controle de retornos</h1><div class="date">Acompanhe quem precisa ser contatado e não perca nenhum retorno.</div></div><button class="new" style="border:0;border-radius:10px;padding:12px 16px;cursor:pointer" onclick="openModal()">＋ Novo atendimento</button></div>
-  <div class="cards">
-    <div class="card"><div class="label">Retornos hoje</div><div class="num red" id="todayCount">5</div></div>
-    <div class="card"><div class="label">Próximos 7 dias</div><div class="num orange">12</div></div>
-    <div class="card"><div class="label">Aguardando contato</div><div class="num blue">8</div></div>
-    <div class="card"><div class="label">Agendados</div><div class="num green">24</div></div>
-    <div class="card"><div class="label">Total de pacientes</div><div class="num purple" id="totalCount">86</div></div>
-  </div>
-  <div class="grid">
-    <section class="panel"><div class="panelhead"><h2>🔔 Retornos para hoje</h2><button class="link">Ver todos</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Paciente</th><th>Telefone</th><th>Retorno</th><th>Status</th><th>Ação</th></tr></thead><tbody id="todayRows">
-      <tr><td><b>José da Silva</b></td><td>(65) 98765-4321</td><td>30/09/2026</td><td><span class="pill red">Hoje</span></td><td><div class="actions"><button class="iconbtn" title="WhatsApp" onclick="toast('Abrindo WhatsApp para José')">◉</button><button class="iconbtn" title="Registrar contato" onclick="toast('Contato registrado')">✓</button></div></td></tr>
-      <tr><td><b>Maria Oliveira</b></td><td>(65) 91234-5678</td><td>30/09/2026</td><td><span class="pill red">Hoje</span></td><td><div class="actions"><button class="iconbtn" onclick="toast('Abrindo WhatsApp para Maria')">◉</button><button class="iconbtn" onclick="toast('Contato registrado')">✓</button></div></td></tr>
-      <tr><td><b>Carlos Souza</b></td><td>(65) 99876-5432</td><td>30/09/2026</td><td><span class="pill red">Hoje</span></td><td><div class="actions"><button class="iconbtn" onclick="toast('Abrindo WhatsApp para Carlos')">◉</button><button class="iconbtn" onclick="toast('Contato registrado')">✓</button></div></td></tr>
-      <tr><td><b>Ana Costa</b></td><td>(65) 97654-3210</td><td>30/09/2026</td><td><span class="pill red">Hoje</span></td><td><div class="actions"><button class="iconbtn" onclick="toast('Abrindo WhatsApp para Ana')">◉</button><button class="iconbtn" onclick="toast('Contato registrado')">✓</button></div></td></tr>
-    </tbody></table></div></section>
-    <section class="panel"><div class="panelhead"><h2>📅 Próximos retornos</h2><button class="link">Ver todos</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Paciente</th><th>Retorno</th><th>Em</th><th>Status</th></tr></thead><tbody>
-      <tr><td><b>Marcos Pereira</b></td><td>05/10/2026</td><td>5 dias</td><td><span class="pill orange">Aproximando</span></td></tr><tr><td><b>Juliana Alves</b></td><td>08/10/2026</td><td>8 dias</td><td><span class="pill orange">Aproximando</span></td></tr><tr><td><b>Roberto Martins</b></td><td>12/10/2026</td><td>12 dias</td><td><span class="pill blue">Programado</span></td></tr><tr><td><b>Beatriz Rocha</b></td><td>15/10/2026</td><td>15 dias</td><td><span class="pill blue">Programado</span></td></tr>
-    </tbody></table></div></section>
-  </div>
-  <div class="bottom">
-    <section class="panel alert"><div class="panelhead"><h2>⚠️ Atenção</h2></div><div style="padding:18px"><b>3 pacientes</b> estão com retorno muito atrasado (+60 dias).<br><button class="link" style="padding:12px 0 0 0">Ver lista →</button></div></section>
-    <section class="panel quick"><div class="panelhead"><h2>⚡ Ações rápidas</h2></div><div style="padding:10px 16px 14px"><button class="whats" onclick="toast('Pronto para enviar mensagem')">◉ Enviar mensagem WhatsApp</button><button class="primary" onclick="toast('Abrindo lista de retornos')">↻ Ver todos os retornos</button><button class="new" onclick="openModal()">＋ Cadastrar novo paciente</button></div></section>
-    <section class="panel"><div class="panelhead"><h2>💬 Mensagens prontas</h2><button class="link" onclick="toast('Mensagens disponíveis')">Ver todas</button></div><div style="padding:6px 16px 10px"><div style="padding:11px 0;border-bottom:1px solid var(--border);font-size:12px">✈ Lembrete de retorno</div><div style="padding:11px 0;border-bottom:1px solid var(--border);font-size:12px">✈ Confirmação de agendamento</div><div style="padding:11px 0;border-bottom:1px solid var(--border);font-size:12px">✈ Paciente não respondeu</div><div style="padding:11px 0;font-size:12px">✈ Pedido para entrar em contato depois</div></div></section>
-  </div>
-  <section class="panel" style="margin-top:16px"><div class="panelhead"><h2>👤 Exemplo: ficha do Sr. José</h2><button class="link">Abrir paciente</button></div><div style="padding:18px;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:18px"><div><div class="eyebrow">Paciente</div><h2 style="margin:5px 0">José da Silva</h2><div style="font-size:13px;color:var(--muted)">📱 (65) 98765-4321</div></div><div><div class="eyebrow">Último atendimento</div><b>30/09/2026 — Limpeza e avaliação</b><br><span style="font-size:13px;color:var(--muted)">Próximo retorno: <b style="color:var(--text)">29/12/2026 (90 dias)</b></span></div><div><div class="eyebrow">Ações</div><div class="actions" style="margin-top:8px"><button class="primary" style="border:0;border-radius:9px;padding:9px 12px;color:#fff;cursor:pointer" onclick="toast('Contato registrado para José')">Registrar contato</button><button class="whats" style="border:0;border-radius:9px;padding:9px 12px;cursor:pointer" onclick="toast('Abrindo WhatsApp para José')">WhatsApp</button></div></div></div></section>
-</main></div>
-<main class="main" id="patients" style="display:none">
-  <div class="top"><div><div class="eyebrow">Cadastro</div><h1>Pacientes</h1><div class="date">Consulte os pacientes e veja o próximo retorno de cada um.</div></div><button class="new" style="border:0;border-radius:10px;padding:12px 16px;cursor:pointer" onclick="openModal()">＋ Novo atendimento</button></div>
-  <div class="searchbar"><input id="patientSearch" placeholder="🔎 Buscar por nome ou telefone..." oninput="renderPatients()"></div>
-  <section class="panel"><div class="tablewrap"><table class="table"><thead><tr><th>Paciente</th><th>Telefone</th><th>Último atendimento</th><th>Próximo retorno</th><th>Status</th><th>Ações</th></tr></thead><tbody id="patientRows"></tbody></table></div></section>
+
+<main class="main">
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="section active">
+
+<div class="header">
+    <div>
+        <h1>Bom dia, Luísa! 💜</h1>
+        <p>Organize sua rotina e não deixe nenhum paciente sem retorno.</p>
+    </div>
+    <button class="primary" onclick="showSection('pacientes')">+ Novo paciente</button>
+</div>
+
+<div class="cards">
+    <div class="card">
+        <small>Pacientes</small>
+        <strong id="totalPacientes">0</strong>
+    </div>
+    <div class="card">
+        <small>Retornos para hoje</small>
+        <strong id="totalRetornos">0</strong>
+    </div>
+    <div class="card">
+        <small>Aguardando contato</small>
+        <strong id="totalContato">0</strong>
+    </div>
+    <div class="card">
+        <small>Pendências</small>
+        <strong id="totalPendencias">0</strong>
+    </div>
+</div>
+
+<div class="grid">
+
+<div class="box">
+<h2>📅 Agenda do Dia</h2>
+<div id="listaAgenda"></div>
+</div>
+
+<div class="box">
+<h2>⚠️ Atenção</h2>
+<div id="listaAtencao"></div>
+</div>
+
+</div>
+</section>
+
+
+<!-- PACIENTES -->
+<section id="pacientes" class="section">
+
+<div class="header">
+<div>
+<h1>Pacientes</h1>
+<p>Cadastre e acompanhe os pacientes da clínica.</p>
+</div>
+</div>
+
+<div class="box">
+<h2>Novo paciente</h2>
+
+<div class="form">
+<div class="field">
+<label>Nome do paciente</label>
+<input id="nomePaciente" placeholder="Ex.: José da Silva">
+</div>
+
+<div class="field">
+<label>Telefone</label>
+<input id="telefonePaciente" placeholder="(00) 00000-0000">
+</div>
+
+<div class="field">
+<label>Último atendimento</label>
+<input id="ultimoAtendimento" type="date">
+</div>
+
+<div class="field">
+<label>Próximo retorno</label>
+<input id="proximoRetorno" type="date">
+</div>
+
+<div class="field">
+<label>Status</label>
+<select id="statusPaciente">
+<option>Agendado</option>
+<option>Aguardando contato</option>
+<option>Sem retorno</option>
+<option>Manutenção</option>
+<option>Tratamento em andamento</option>
+</select>
+</div>
+
+<div class="field">
+<label>Resultado do contato</label>
+<select id="resultadoContato">
+<option>Não contatado</option>
+<option>Sem resposta</option>
+<option>Agendou</option>
+<option>Não deseja agendar agora</option>
+<option>Solicitou contato depois</option>
+</select>
+</div>
+
+<div class="field full">
+<label>Observações</label>
+<textarea id="obsPaciente" placeholder="Anotações importantes..."></textarea>
+</div>
+</div>
+
+<div class="actions">
+<button class="primary" onclick="salvarPaciente()">Salvar paciente</button>
+</div>
+</div>
+
+<div class="box">
+<h2>Lista de pacientes</h2>
+<div id="listaPacientes"></div>
+</div>
+
+</section>
+
+
+<!-- RETORNOS -->
+<section id="retornos" class="section">
+
+<div class="header">
+<div>
+<h1>Retornos</h1>
+<p>Acompanhe quem precisa ser chamado.</p>
+</div>
+</div>
+
+<div class="box">
+<div id="listaRetornos"></div>
+</div>
+
+</section>
+
+
+<!-- REMARCAÇÕES -->
+<section id="remarcacoes" class="section">
+
+<div class="header">
+<div>
+<h1>Remarcações</h1>
+<p>Pacientes que precisam de novo agendamento.</p>
+</div>
+</div>
+
+<div class="box">
+<h2>Nova remarcação</h2>
+
+<div class="form">
+<div class="field">
+<label>Paciente</label>
+<input id="remPaciente" placeholder="Nome do paciente">
+</div>
+
+<div class="field">
+<label>Motivo</label>
+<select id="remMotivo">
+<option>Doutor desmarcou</option>
+<option>Paciente desmarcou</option>
+<option>Clínica desmarcou</option>
+<option>Outro</option>
+</select>
+</div>
+
+<div class="field">
+<label>Data para tentar contato</label>
+<input id="remData" type="date">
+</div>
+</div>
+
+<div class="actions">
+<button class="primary" onclick="salvarRemarcacao()">Salvar</button>
+</div>
+</div>
+
+<div class="box">
+<div id="listaRemarcacoes"></div>
+</div>
+
+</section>
+
+
+<!-- TRATAMENTOS -->
+<section id="tratamentos" class="section">
+
+<div class="header">
+<div>
+<h1>Tratamentos</h1>
+<p>Acompanhe tratamentos que ainda precisam de continuidade.</p>
+</div>
+</div>
+
+<div class="box">
+<h2>Novo acompanhamento</h2>
+
+<div class="form">
+<div class="field">
+<label>Paciente</label>
+<input id="tratPaciente" placeholder="Nome do paciente">
+</div>
+
+<div class="field">
+<label>Tratamento</label>
+<input id="tratNome" placeholder="Ex.: Implante">
+</div>
+
+<div class="field">
+<label>Próxima etapa</label>
+<input id="tratEtapa" placeholder="Ex.: Coroa sobre implante">
+</div>
+
+<div class="field">
+<label>Data prevista</label>
+<input id="tratData" type="date">
+</div>
+</div>
+
+<div class="actions">
+<button class="primary" onclick="salvarTratamento()">Salvar</button>
+</div>
+</div>
+
+<div class="box">
+<div id="listaTratamentos"></div>
+</div>
+
+</section>
+
+
+<!-- PENDÊNCIAS -->
+<section id="pendencias" class="section">
+
+<div class="header">
+<div>
+<h1>Pendências</h1>
+<p>Tudo aquilo que precisa da sua atenção.</p>
+</div>
+</div>
+
+<div class="box">
+<h2>Nova pendência</h2>
+
+<div class="form">
+<div class="field">
+<label>Descrição</label>
+<input id="pendDescricao" placeholder="Ex.: Ligar para paciente">
+</div>
+
+<div class="field">
+<label>Data</label>
+<input id="pendData" type="date">
+</div>
+</div>
+
+<div class="actions">
+<button class="primary" onclick="salvarPendencia()">Salvar</button>
+</div>
+</div>
+
+<div class="box">
+<div id="listaPendencias"></div>
+</div>
+
+</section>
+
+
+<!-- FINANCEIRO -->
+<section id="financeiro" class="section">
+
+<div class="header">
+<div>
+<h1>Financeiro</h1>
+<p>Controle simples dos valores dos pacientes.</p>
+</div>
+</div>
+
+<div class="box">
+
+<div class="form">
+
+<div class="field">
+<label>Paciente</label>
+<input id="finPaciente" placeholder="Nome do paciente">
+</div>
+
+<div class="field">
+<label>Valor</label>
+<input id="finValor" type="number" step="0.01" placeholder="0,00">
+</div>
+
+<div class="field">
+<label>Status</label>
+<select id="finStatus">
+<option>Em aberto</option>
+<option>Pago</option>
+<option>Parcial</option>
+</select>
+</div>
+
+<div class="field">
+<label>Observação</label>
+<input id="finObs" placeholder="Ex.: Entrada do tratamento">
+</div>
+
+</div>
+
+<div class="actions">
+<button class="primary" onclick="salvarFinanceiro()">Adicionar</button>
+</div>
+
+</div>
+
+<div class="box">
+<div id="listaFinanceiro"></div>
+</div>
+
+</section>
+
+
+<!-- MENSAGENS -->
+<section id="mensagens" class="section">
+
+<div class="header">
+<div>
+<h1>Mensagens prontas</h1>
+<p>Copie mensagens para facilitar seu atendimento.</p>
+</div>
+</div>
+
+<div class="box">
+
+<div class="item">
+<strong>📞 Retorno</strong>
+<p>Olá! Tudo bem? 😊 Estamos entrando em contato para saber como você está e verificar a possibilidade de agendarmos seu próximo retorno na Clínica Chicaroli.</p>
+<button class="secondary" onclick="copiar(this)">Copiar mensagem</button>
+</div>
+
+<div class="item">
+<strong>📅 Remarcação</strong>
+<p>Olá! Tudo bem? Estamos entrando em contato para realizarmos a remarcação do seu atendimento. Temos alguns horários disponíveis e ficaremos felizes em encontrar o melhor horário para você. 💜</p>
+<button class="secondary" onclick="copiar(this)">Copiar mensagem</button>
+</div>
+
+<div class="item">
+<strong>💰 Financeiro</strong>
+<p>Olá! Tudo bem? 😊 Estamos entrando em contato referente ao seu atendimento na Clínica Chicaroli. Gostaríamos de alinhar uma informação financeira com você. Podemos conversar?</p>
+<button class="secondary" onclick="copiar(this)">Copiar mensagem</button>
+</div>
+
+</div>
+</section>
+
 </main>
-<main class="main" id="returns" style="display:none">
-  <div class="top"><div><div class="eyebrow">Acompanhamento</div><h1>Retornos</h1><div class="date">Veja quem está chegando ao período de retorno ou precisa de contato.</div></div></div>
-  <section class="panel"><div class="tablewrap"><table class="table"><thead><tr><th>Paciente</th><th>Retorno</th><th>Prazo</th><th>Status</th><th>Ações</th></tr></thead><tbody id="returnRows"></tbody></table></div></section>
-</main>
-<main class="main" id="messages" style="display:none">
-  <div class="top"><div><div class="eyebrow">Comunicação</div><h1>Mensagens</h1><div class="date">Mensagens rápidas para facilitar seus contatos.</div></div></div>
-  <section class="panel"><div style="padding:18px;display:grid;gap:12px"><div class="card"><b>Lembrete de retorno</b><p style="font-size:13px;color:var(--muted)">Olá! Tudo bem? 😊 Estamos entrando em contato da Clínica Chicaroli para lembrar que está próximo o período do seu retorno. Gostaria de deixar seu atendimento agendado? 🦷💙</p><button class="primary" style="border:0;border-radius:9px;padding:9px 12px;color:#fff;cursor:pointer" onclick="copyMessage('Olá! Tudo bem? 😊 Estamos entrando em contato da Clínica Chicaroli para lembrar que está próximo o período do seu retorno. Gostaria de deixar seu atendimento agendado? 🦷💙')">Copiar mensagem</button></div><div class="card"><b>Paciente não respondeu</b><p style="font-size:13px;color:var(--muted)">Olá! Passando novamente para saber se podemos ajudar a deixar seu próximo atendimento agendado. Quando puder, nos responda por aqui. 💙</p><button class="primary" style="border:0;border-radius:9px;padding:9px 12px;color:#fff;cursor:pointer" onclick="copyMessage('Olá! Passando novamente para saber se podemos ajudar a deixar seu próximo atendimento agendado. Quando puder, nos responda por aqui. 💙')">Copiar mensagem</button></div></div></section>
-</main>
-<main class="main" id="history" style="display:none">
-  <div class="top"><div><div class="eyebrow">Registro</div><h1>Histórico de contatos</h1><div class="date">Acompanhe quem já foi contatado e quando.</div></div></div>
-  <section class="panel"><div class="tablewrap"><table class="table"><thead><tr><th>Paciente</th><th>Data do contato</th><th>Resultado</th><th>Próximo retorno</th></tr></thead><tbody id="historyRows"></tbody></table></div></section>
-</main>
-<div class="modal" id="modal"><div class="modalbox"><div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">Novo atendimento</h2><button class="close" style="border:0;border-radius:8px;padding:7px 10px;cursor:pointer" onclick="closeModal()">✕</button></div><p class="eyebrow">Cadastre o atendimento e o sistema calcula o próximo retorno.</p><div class="formgrid"><div class="field"><label>Paciente</label><input id="nome" placeholder="Ex.: José da Silva"></div><div class="field"><label>Telefone</label><input placeholder="(65) 99999-9999"></div><div class="field"><label>Data do atendimento</label><input id="data" type="date" value="2026-09-30"></div><div class="field"><label>Retorno em</label><select id="dias"><option value="30">30 dias</option><option value="60">60 dias</option><option value="90" selected>90 dias</option><option value="120">120 dias</option><option value="180">180 dias</option></select></div><div class="field full"><label>Procedimento</label><input placeholder="Ex.: Limpeza, avaliação, manutenção..."></div><div class="field full"><label>Observação</label><input placeholder="Opcional"></div></div><div class="modalactions"><button class="close" onclick="closeModal()">Cancelar</button><button class="save" onclick="savePatient()">Salvar atendimento</button></div></div></div>
-<div class="toast" id="toast"></div>
+</div>
+
+
 <script>
-const KEY='chicaroli_pacientes_v1';
-const seed=[
-{id:1,nome:'José da Silva',telefone:'(65) 98765-4321',atendimento:'2026-09-30',retorno:'2026-12-29',dias:90,procedimento:'Limpeza e avaliação',contato:false,status:'Pendente'},
-{id:2,nome:'Maria Oliveira',telefone:'(65) 91234-5678',atendimento:'2026-09-30',retorno:'2026-12-29',dias:90,procedimento:'Avaliação',contato:false,status:'Pendente'},
-{id:3,nome:'Carlos Souza',telefone:'(65) 99876-5432',atendimento:'2026-09-30',retorno:'2026-12-29',dias:90,procedimento:'Manutenção',contato:false,status:'Pendente'},
-{id:4,nome:'Ana Costa',telefone:'(65) 97654-3210',atendimento:'2026-09-30',retorno:'2026-12-29',dias:90,procedimento:'Limpeza',contato:false,status:'Pendente'},
-{id:5,nome:'Marcos Pereira',telefone:'(65) 95555-1000',atendimento:'2026-07-07',retorno:'2026-10-05',dias:90,procedimento:'Avaliação',contato:false,status:'Pendente'}
-];
-function getPatients(){try{const x=JSON.parse(localStorage.getItem(KEY));return Array.isArray(x)&&x.length?x:seed}catch(e){return seed}}
-function setPatients(p){localStorage.setItem(KEY,JSON.stringify(p))}
-function openModal(){document.getElementById('modal').classList.add('show')}
-function closeModal(){document.getElementById('modal').classList.remove('show')}
-function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2400)}
-function dateObj(s){return new Date(s+'T00:00:00')}
-function fmt(s){return dateObj(s).toLocaleDateString('pt-BR')}
-function todayKey(){const d=new Date();return d.toISOString().slice(0,10)}
-function showSection(id,btn){document.querySelectorAll('.main').forEach(x=>x.style.display='none');document.getElementById(id).style.display='block';document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');if(id==='patients')renderPatients();if(id==='returns')renderReturns();if(id==='history')renderHistory();window.scrollTo(0,0)}
-function statusFor(x){const now=new Date(todayKey()+'T00:00:00'),d=Math.round((dateObj(x.retorno)-now)/86400000);if(x.status==='Agendado')return '<span class="pill green">Agendado</span>';if(d<0)return '<span class="pill red">Atrasado</span>';if(d===0)return '<span class="pill red">Hoje</span>';if(d<=7)return '<span class="pill orange">Próximo</span>';return '<span class="pill blue">Programado</span>'}
-function renderPatients(){const q=(document.getElementById('patientSearch')?.value||'').toLowerCase();const p=getPatients().filter(x=>(x.nome+' '+x.telefone).toLowerCase().includes(q));document.getElementById('patientRows').innerHTML=p.length?p.map(x=>'<tr><td><b>'+x.nome+'</b></td><td>'+x.telefone+'</td><td>'+fmt(x.atendimento)+'</td><td>'+fmt(x.retorno)+'</td><td>'+statusFor(x)+'</td><td><div class="actions"><button class="iconbtn" title="WhatsApp" onclick="whatsapp(getPatients().find(p=>p.id==='+x.id+'))">◉</button><button class="iconbtn" title="Registrar contato" onclick="registerContact('+x.id+')">✓</button></div></td></tr>').join(''):'<tr><td colspan="6" style="padding:22px;text-align:center;color:var(--muted)">Nenhum paciente encontrado.</td></tr>'}
-function renderReturns(){const p=getPatients().sort((a,b)=>dateObj(a.retorno)-dateObj(b.retorno));document.getElementById('returnRows').innerHTML=p.length?p.map(x=>'<tr><td><b>'+x.nome+'</b></td><td>'+fmt(x.retorno)+'</td><td>'+Math.round((dateObj(x.retorno)-new Date(todayKey()+'T00:00:00'))/86400000)+' dias</td><td>'+statusFor(x)+'</td><td><div class="actions"><button class="iconbtn" onclick="whatsapp(getPatients().find(p=>p.id==='+x.id+'))">◉</button><button class="iconbtn" onclick="registerContact('+x.id+')">✓</button></div></td></tr>').join(''):'<tr><td colspan="5" style="padding:22px;text-align:center;color:var(--muted)">Nenhum retorno cadastrado.</td></tr>'}
-function renderHistory(){const p=getPatients().filter(x=>x.dataContato).sort((a,b)=>dateObj(b.dataContato)-dateObj(a.dataContato));document.getElementById('historyRows').innerHTML=p.length?p.map(x=>'<tr><td><b>'+x.nome+'</b></td><td>'+fmt(x.dataContato)+'</td><td><span class="pill '+resultClass(x.resultado)+'">'+(x.resultado||'Contatado')+'</span></td><td>'+fmt(x.retorno)+'</td></tr>').join(''):'<tr><td colspan="4" style="padding:22px;text-align:center;color:var(--muted)">Ainda não há contatos registrados.</td></tr>'}
-function resultClass(r){if(r==='Agendou')return 'green';if(r==='Não respondeu')return 'orange';if(r==='Pediu contato depois')return 'blue';if(r==='Não deseja agendar')return 'red';return 'blue'}
-function openResult(id){const item=getPatients().find(x=>x.id===id);if(!item)return;document.getElementById('resultPatient').textContent=item.nome;document.getElementById('resultId').value=id;document.getElementById('resultModal').classList.add('show')}
-function closeResult(){document.getElementById('resultModal').classList.remove('show')}
-function saveResult(result){const id=+document.getElementById('resultId').value;const item=getPatients().find(x=>x.id===id);if(!item)return;item.resultado=result;item.dataContato=todayKey();item.contato=true;item.status=result==='Agendou'?'Agendado':'Contatado';setPatients(getPatients());closeResult();render();renderPatients();renderReturns();renderHistory();toast(item.nome+': '+result)}
-function copyMessage(t){navigator.clipboard?.writeText(t);toast('Mensagem copiada')}
-function whatsapp(p){const phone=p.telefone.replace(/\\D/g,'');const text=encodeURIComponent('Olá, '+p.nome+'! Tudo bem? 😊 Estamos entrando em contato da Clínica Chicaroli para saber como você está e verificar se já podemos deixar seu próximo atendimento agendado. Será um prazer te receber novamente! 🦷💙');window.open('https://wa.me/55'+phone+'?text='+text,'_blank')}
-function registerContact(id){openResult(id)}
-function render(){
-const p=getPatients(),today=todayKey(),now=new Date(today+'T00:00:00');
-const todayList=p.filter(x=>x.retorno===today&&!x.contato);
-document.getElementById('todayCount').textContent=todayList.length;
-document.getElementById('totalCount').textContent=p.length;
-document.querySelector('.cards .card:nth-child(2) .num').textContent=p.filter(x=>{const d=(dateObj(x.retorno)-now)/86400000;return d>0&&d<=7&&!x.contato}).length;
-document.querySelector('.cards .card:nth-child(3) .num').textContent=p.filter(x=>!x.contato&&dateObj(x.retorno)<=new Date(now.getTime()+30*86400000)).length;
-document.querySelector('.cards .card:nth-child(4) .num').textContent=p.filter(x=>x.status==='Agendado').length;
-const tbody=document.getElementById('todayRows');
-tbody.innerHTML=todayList.length?todayList.map(x=>'<tr><td><b>'+x.nome+'</b></td><td>'+x.telefone+'</td><td>'+fmt(x.retorno)+'</td><td><span class="pill red">Hoje</span></td><td><div class="actions"><button class="iconbtn" title="WhatsApp" onclick="whatsapp(getPatients().find(p=>p.id==='+x.id+'))">◉</button><button class="iconbtn" title="Registrar contato" onclick="registerContact('+x.id+')">✓</button></div></td></tr>').join(''):'<tr><td colspan="5" style="padding:22px;text-align:center;color:var(--muted)">Nenhum retorno pendente para hoje 🎉</td></tr>';
+
+let pacientes = JSON.parse(localStorage.getItem("agenda_pacientes") || "[]");
+let remarcacoes = JSON.parse(localStorage.getItem("agenda_remarcacoes") || "[]");
+let tratamentos = JSON.parse(localStorage.getItem("agenda_tratamentos") || "[]");
+let pendencias = JSON.parse(localStorage.getItem("agenda_pendencias") || "[]");
+let financeiro = JSON.parse(localStorage.getItem("agenda_financeiro") || "[]");
+
+function salvarDados(){
+    localStorage.setItem("agenda_pacientes",JSON.stringify(pacientes));
+    localStorage.setItem("agenda_remarcacoes",JSON.stringify(remarcacoes));
+    localStorage.setItem("agenda_tratamentos",JSON.stringify(tratamentos));
+    localStorage.setItem("agenda_pendencias",JSON.stringify(pendencias));
+    localStorage.setItem("agenda_financeiro",JSON.stringify(financeiro));
 }
-function savePatient(){
-const n=document.getElementById('nome').value.trim();if(!n){toast('Informe o nome do paciente');return}
-const tel=document.querySelector('#modal input[placeholder*="65"]').value.trim();
-const atendimento=document.getElementById('data').value||todayKey();const days=+document.getElementById('dias').value;const d=dateObj(atendimento);d.setDate(d.getDate()+days);const retorno=d.toISOString().slice(0,10);
-const p=getPatients();p.push({id:Date.now(),nome:n,telefone:tel||'Não informado',atendimento,retorno,dias,procedimento:document.querySelector('#modal .field.full input').value||'Não informado',contato:false,status:'Pendente'});setPatients(p);closeModal();document.getElementById('nome').value='';render();toast(n+' cadastrado. Retorno em '+fmt(retorno)+' ('+days+' dias).')}
-render();
+
+function showSection(id,btn){
+
+    document.querySelectorAll(".section").forEach(s=>{
+        s.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    document.querySelectorAll(".nav button").forEach(b=>{
+        b.classList.remove("active");
+    });
+
+    if(btn) btn.classList.add("active");
+
+    atualizarTudo();
+}
+
+function salvarPaciente(){
+
+    const nome=document.getElementById("nomePaciente").value.trim();
+
+    if(!nome){
+        alert("Digite o nome do paciente.");
+        return;
+    }
+
+    pacientes.push({
+        id:Date.now(),
+        nome:nome,
+        telefone:document.getElementById("telefonePaciente").value,
+        ultimo:document.getElementById("ultimoAtendimento").value,
+        retorno:document.getElementById("proximoRetorno").value,
+        status:document.getElementById("statusPaciente").value,
+        contato:document.getElementById("resultadoContato").value,
+        obs:document.getElementById("obsPaciente").value
+    });
+
+    salvarDados();
+    limparCampos("nomePaciente","telefonePaciente","ultimoAtendimento","proximoRetorno","obsPaciente");
+    atualizarTudo();
+
+    alert("Paciente salvo com sucesso! 💜");
+}
+
+function salvarRemarcacao(){
+
+    const paciente=document.getElementById("remPaciente").value.trim();
+
+    if(!paciente){
+        alert("Digite o nome do paciente.");
+        return;
+    }
+
+    remarcacoes.push({
+        id:Date.now(),
+        paciente:paciente,
+        motivo:document.getElementById("remMotivo").value,
+        data:document.getElementById("remData").value
+    });
+
+    salvarDados();
+    limparCampos("remPaciente","remData");
+    atualizarTudo();
+}
+
+function salvarTratamento(){
+
+    const paciente=document.getElementById("tratPaciente").value.trim();
+
+    if(!paciente){
+        alert("Digite o nome do paciente.");
+        return;
+    }
+
+    tratamentos.push({
+        id:Date.now(),
+        paciente:paciente,
+        tratamento:document.getElementById("tratNome").value,
+        etapa:document.getElementById("tratEtapa").value,
+        data:document.getElementById("tratData").value
+    });
+
+    salvarDados();
+    limparCampos("tratPaciente","tratNome","tratEtapa","tratData");
+    atualizarTudo();
+}
+
+function salvarPendencia(){
+
+    const descricao=document.getElementById("pendDescricao").value.trim();
+
+    if(!descricao){
+        alert("Digite a pendência.");
+        return;
+    }
+
+    pendencias.push({
+        id:Date.now(),
+        descricao:descricao,
+        data:document.getElementById("pendData").value,
+        concluida:false
+    });
+
+    salvarDados();
+    limparCampos("pendDescricao","pendData");
+    atualizarTudo();
+}
+
+function salvarFinanceiro(){
+
+    const paciente=document.getElementById("finPaciente").value.trim();
+
+    if(!paciente){
+        alert("Digite o paciente.");
+        return;
+    }
+
+    financeiro.push({
+        id:Date.now(),
+        paciente:paciente,
+        valor:parseFloat(document.getElementById("finValor").value)||0,
+        status:document.getElementById("finStatus").value,
+        obs:document.getElementById("finObs").value
+    });
+
+    salvarDados();
+    limparCampos("finPaciente","finValor","finObs");
+    atualizarTudo();
+}
+
+function limparCampos(...ids){
+    ids.forEach(id=>{
+        const el=document.getElementById(id);
+        if(el) el.value="";
+    });
+}
+
+function excluir(tipo,id){
+
+    if(!confirm("Deseja realmente excluir este registro?")) return;
+
+    if(tipo==="paciente") pacientes=pacientes.filter(x=>x.id!==id);
+    if(tipo==="remarcacao") remarcacoes=remarcacoes.filter(x=>x.id!==id);
+    if(tipo==="tratamento") tratamentos=tratamentos.filter(x=>x.id!==id);
+    if(tipo==="pendencia") pendencias=pendencias.filter(x=>x.id!==id);
+    if(tipo==="financeiro") financeiro=financeiro.filter(x=>x.id!==id);
+
+    salvarDados();
+    atualizarTudo();
+}
+
+function concluirPendencia(id){
+
+    const p=pendencias.find(x=>x.id===id);
+    if(p) p.concluida=!p.concluida;
+
+    salvarDados();
+    atualizarTudo();
+}
+
+function formatarData(data){
+
+    if(!data) return "Sem data";
+
+    const partes=data.split("-");
+    if(partes.length!==3) return data;
+
+    return partes[2]+"/"+partes[1]+"/"+partes[0];
+}
+
+function renderPacientes(){
+
+    const el=document.getElementById("listaPacientes");
+
+    if(!pacientes.length){
+        el.innerHTML='<div class="empty">Nenhum paciente cadastrado ainda.</div>';
+        return;
+    }
+
+    el.innerHTML=`
+    <table class="table">
+    <tr>
+    <th>Paciente</th>
+    <th>Telefone</th>
+    <th>Retorno</th>
+    <th>Status</th>
+    <th></th>
+    </tr>
+
+    ${pacientes.map(p=>`
+    <tr>
+    <td><strong>${p.nome}</strong></td>
+    <td>${p.telefone||"-"}</td>
+    <td>${formatarData(p.retorno)}</td>
+    <td><span class="badge">${p.status}</span></td>
+    <td><button class="danger" onclick="excluir('paciente',${p.id})">Excluir</button></td>
+    </tr>
+    `).join("")}
+
+    </table>`;
+}
+
+function renderRetornos(){
+
+    const el=document.getElementById("listaRetornos");
+
+    const hoje=new Date().toISOString().split("T")[0];
+
+    const lista=pacientes.filter(p=>p.retorno && p.retorno<=hoje);
+
+    if(!lista.length){
+        el.innerHTML='<div class="empty">Nenhum retorno para hoje. 💜</div>';
+        return;
+    }
+
+    el.innerHTML=lista.map(p=>`
+    <div class="item">
+    <strong>${p.nome}</strong>
+    <div class="muted">Retorno: ${formatarData(p.retorno)}</div>
+    <div class="muted">Contato: ${p.contato}</div>
+    </div>
+    `).join("");
+}
+
+function renderRemarcacoes(){
+
+    const el=document.getElementById("listaRemarcacoes");
+
+    if(!remarcacoes.length){
+        el.innerHTML='<div class="empty">Nenhuma remarcação pendente.</div>';
+        return;
+    }
+
+    el.innerHTML=remarcacoes.map(r=>`
+    <div class="item">
+    <strong>${r.paciente}</strong>
+    <div class="muted">${r.motivo}</div>
+    <div class="muted">Tentar contato: ${formatarData(r.data)}</div>
+    <button class="danger" onclick="excluir('remarcacao',${r.id})">Excluir</button>
+    </div>
+    `).join("");
+}
+
+function renderTratamentos(){
+
+    const el=document.getElementById("listaTratamentos");
+
+    if(!tratamentos.length){
+        el.innerHTML='<div class="empty">Nenhum tratamento pendente.</div>';
+        return;
+    }
+
+    el.innerHTML=tratamentos.map(t=>`
+    <div class="item">
+    <strong>${t.paciente}</strong>
+    <div class="muted">Tratamento: ${t.tratamento}</div>
+    <div class="muted">Próxima etapa: ${t.etapa}</div>
+    <div class="muted">Data: ${formatarData(t.data)}</div>
+    <button class="danger" onclick="excluir('tratamento',${t.id})">Excluir</button>
+    </div>
+    `).join("");
+}
+
+function renderPendencias(){
+
+    const el=document.getElementById("listaPendencias");
+
+    if(!pendencias.length){
+        el.innerHTML='<div class="empty">Nenhuma pendência. 🎉</div>';
+        return;
+    }
+
+    el.innerHTML=pendencias.map(p=>`
+    <div class="item">
+    <strong style="${p.concluida?'text-decoration:line-through':''}">
+    ${p.descricao}
+    </strong>
+    <div class="muted">Data: ${formatarData(p.data)}</div>
+    <div class="actions">
+    <button class="secondary" onclick="concluirPendencia(${p.id})">
+    ${p.concluida?"Reabrir":"Concluir"}
+    </button>
+    <button class="danger" onclick="excluir('pendencia',${p.id})">Excluir</button>
+    </div>
+    </div>
+    `).join("");
+}
+
+function renderFinanceiro(){
+
+    const el=document.getElementById("listaFinanceiro");
+
+    if(!financeiro.length){
+        el.innerHTML='<div class="empty">Nenhum lançamento financeiro.</div>';
+        return;
+    }
+
+    const total=financeiro.reduce((s,f)=>s+f.valor,0);
+
+    el.innerHTML=`
+    <div class="card" style="margin-bottom:15px">
+    <small>Total lançado</small>
+    <strong>R$ ${total.toFixed(2).replace(".",",")}</strong>
+    </div>
+
+    <table class="table">
+    <tr>
+    <th>Paciente</th>
+    <th>Valor</th>
+    <th>Status</th>
+    <th></th>
+    </tr>
+
+    ${financeiro.map(f=>`
+    <tr>
+    <td>${f.paciente}</td>
+    <td>R$ ${f.valor.toFixed(2).replace(".",",")}</td>
+    <td><span class="badge">${f.status}</span></td>
+    <td><button class="danger" onclick="excluir('financeiro',${f.id})">Excluir</button></td>
+    </tr>
+    `).join("")}
+    </table>`;
+}
+
+function atualizarDashboard(){
+
+    document.getElementById("totalPacientes").textContent=pacientes.length;
+
+    const hoje=new Date().toISOString().split("T")[0];
+
+    document.getElementById("totalRetornos").textContent=
+        pacientes.filter(p=>p.retorno===hoje).length;
+
+    document.getElementById("totalContato").textContent=
+        pacientes.filter(p=>p.status==="Aguardando contato").length;
+
+    document.getElementById("totalPendencias").textContent=
+        pendencias.filter(p=>!p.concluida).length;
+
+    const agenda=document.getElementById("listaAgenda");
+
+    const retornos=pacientes.filter(p=>p.retorno===hoje);
+
+    if(!retornos.length){
+        agenda.innerHTML='<div class="empty">Nenhum retorno programado para hoje.</div>';
+    }else{
+        agenda.innerHTML=retornos.map(p=>`
+        <div class="item">
+        <strong>${p.nome}</strong>
+        <div class="muted">Retorno de paciente</div>
+        </div>
+        `).join("");
+    }
+
+    const atencao=document.getElementById("listaAtencao");
+
+    const lista=[
+        ...pacientes.filter(p=>p.status==="Aguardando contato").map(p=>`Entrar em contato com ${p.nome}`),
+        ...remarcacoes.map(r=>`Remarcar ${r.paciente}`),
+        ...pendencias.filter(p=>!p.concluida).map(p=>p.descricao)
+    ];
+
+    if(!lista.length){
+        atencao.innerHTML='<div class="empty">Tudo organizado por aqui! 💜</div>';
+    }else{
+        atencao.innerHTML=lista.slice(0,8).map(x=>`
+        <div class="item">${x}</div>
+        `).join("");
+    }
+}
+
+function atualizarTudo(){
+
+    renderPacientes();
+    renderRetornos();
+    renderRemarcacoes();
+    renderTratamentos();
+    renderPendencias();
+    renderFinanceiro();
+    atualizarDashboard();
+}
+
+function copiar(botao){
+
+    const texto=botao.parentElement.querySelector("p").innerText;
+
+    navigator.clipboard.writeText(texto);
+
+    const original=botao.innerText;
+    botao.innerText="Copiado! ✓";
+
+    setTimeout(()=>{
+        botao.innerText=original;
+    },1500);
+}
+
+atualizarTudo();
+
 </script>
-</body></html>
+
+</body>
+</html>
